@@ -1,114 +1,80 @@
-package studentdatabase;
-import studentdatabase.*;
-import java.util.Scanner;
+package newJavaProject;
+import java.util.*;
 
-interface Exam {
-	abstract void SetMarks1();
-	abstract void SetMarks2();
-	abstract void DisplayExam(Exam E); 
+abstract class Exam
+{
+	Scanner sc;
+	int marks;
+	//Course course;
+	int temp;
+	
+	public Exam()
+	{
+		marks = 0;
+		temp = 0;
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Exam(int m)
+	{
+		marks = m;
+		//course = c;
+	}
+
 }
 
-
-class ISAExam implements Exam
+class ISA extends Exam
 {
-	AllCourse a;
-	//Student s;
-	int maxISAMark1,maxISAMark2,TotalMarks;
-	Scanner scan=new Scanner(System.in);
-	public ISAExam() {	
-	}
-	
-	public ISAExam(AllCourse a) {
+	private Scanner sc;
+
+	ISA()
+	{
 		super();
-		this.a = a;
-	}
-
-	public void SetMarks1()
-	{
-		maxISAMark1=scan.nextInt();
 	}
 	
-	public void SetMarks2()
+	ISA(int m)
 	{
-		maxISAMark2=scan.nextInt();
-		TotalMarks=maxISAMark1+maxISAMark2;
+		super(m);
 	}
 	
-
-	public int getMaxISAMark1() {
-		return maxISAMark1;
-	}
-
-	public int getMaxISAMark2() {
-		return maxISAMark2;
-	}
-
-	@Override
-	public String toString() {
-		return "ISAExam [Course=" + a + ", maxISAMark1=" + maxISAMark1
-				+ ", maxISAMark2=" + maxISAMark2 + ", TotalMarks=" + TotalMarks
-				+ "]";
-	}
-
-	public void DisplayExam(Exam E)
+	void assignMarks()
 	{
-		System.out.println(E);
+		System.out.println("Enter the marks ");
+		sc = new Scanner(System.in);
+		temp = sc.nextInt();
+		System.out.println("Saved..........");
+	}
+	
+	void displayISA()
+	{
+		System.out.println("Marks: " + marks);
 	}
 }
 
-
-
-class ESAExam implements Exam
+class ESA extends Exam
 {
-	AllCourse a;
-	//Student s;
-	int maxISAMark1,maxISAMark2,TotalMarks;
-	Scanner scan=new Scanner(System.in);
-	
-	
-	public ESAExam() {
-		
-	}
-	public ESAExam(AllCourse a) {
+   
+
+	ESA()
+	{
 		super();
-		this.a = a;
 	}
-
-	public void SetMarks1()
+	
+	ESA(int m)
 	{
-		maxISAMark1=scan.nextInt();
+		super(m);
 	}
 	
-	public void SetMarks2()
+	void assignMarks()
 	{
-		maxISAMark2=scan.nextInt();
-		TotalMarks=maxISAMark1+maxISAMark2;
+		System.out.println("Enter the marks ");
+		sc = new Scanner(System.in);
+		temp = sc.nextInt();
+		System.out.println("Saved..........");
 	}
 	
-	
-	
-
-	public int getMaxISAMark1() {
-		return maxISAMark1;
-	}
-	public void setMaxISAMark1(int maxISAMark1) {
-		this.maxISAMark1 = maxISAMark1;
-	}
-	public int getMaxISAMark2() {
-		return maxISAMark2;
-	}
-	public void setMaxISAMark2(int maxISAMark2) {
-		this.maxISAMark2 = maxISAMark2;
-	}
-	@Override
-	public String toString() {
-		return "ISAExam [Course=" + a + ", maxISAMark1=" + maxISAMark1
-				+ ", maxISAMark2=" + maxISAMark2 + ", TotalMarks=" + TotalMarks
-				+ "]";
-	}
-
-	public void DisplayExam(Exam E)
+	void displayISA()
 	{
-		System.out.println(E);
+		System.out.println("Marks: " + marks);
 	}
 }
